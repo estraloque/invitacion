@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-image: url('assets/fondo-apaisado-3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif; 
+}
+
+.container {
+    position: relative;
+    width: 90vw; 
+    height: 100vh;
+    max-width: 900px;
+    height: auto;
+    perspective: 1000px;
+}
+
+/* Estilos para el sobre cerrado */
+#sobre {
+    width: 50vw;
+    cursor: pointer;
+    transition: transform .5s;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Ocultar el sobre abierto */
+#sobre-abierto {
+    width: 50vw;
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 1;
+}
+
+#sobre-sin-sello {
+    width: 50vw;
+    cursor: pointer;
+    transition: transform .5s;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+
+#hoja-papel {
+    width:45vw;
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.hoja-papel {
+    background-color: transparent;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+.quick-fade-out {
+    animation: fadeIn 0.4s reverse forwards;
+}
+
+
+@media (orientation: portrait) {
+    body {
+        background-image: url('assets/fondo-retrato-3.png'); 
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (orientation: landscape) {
+    body {
+        background-image: url('assets/fondo-apaisado-3.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .container {
+        height: 100vh; 
+    }
+    #sobre,
+    #sobre-sin-sello,
+    #sobre-abierto {
+        bottom: 10vh; 
+        width: 38vw; 
+    }
+    #hoja-papel {
+        bottom: 8vh;
+        width: 28vw; 
+
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .container {
+        height: 100vh; 
+    }
+
+    #sobre,
+    #sobre-sin-sello,
+    #sobre-abierto {
+        bottom: 6vh; 
+        width: 40vw; 
+    }
+    #hoja-papel {
+        bottom: 4vh;
+        width: 30vw; 
+
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 98%;
+    }
+
+    #sobre, #sobre-sin-sello, #sobre-abierto {
+        width: 70vw;
+        bottom: -20vh;
+    }
+
+    #hoja-papel {
+        width: 65vw;
+        bottom: -22vh;
+    }
+
+}
+
+@media (max-width: 480px) {
+    #sobre, #sobre-sin-sello, #sobre-abierto {
+        width: 80vw;
+        bottom: -20vh;
+    }
+
+    #hoja-papel {
+        width: 75vw;
+        bottom: -22vh;
+    }
+
+}
